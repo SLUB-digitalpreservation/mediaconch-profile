@@ -1,4 +1,4 @@
-the policy format is not well documented, here some observations
+the policy format of mediaconch is not well documented yet, here some observations
 (date: 2017-02-20)
 
 - within the policy-xml there are no XML-comments allowed
@@ -14,3 +14,10 @@ will always "true", also if <rule name="bar" .. /> fails.
   express a rule like "Either Audio or not, but if Audio it must be a FLAC"
 
 
+
+Expected video-sizes:
+- a good source about videosizes could be https://de.wikipedia.org/wiki/Digital_Intermediate
+
+
+Preservation policy for video material of SLUB:
+- there is no policy offically released yet, please be patient… :)
