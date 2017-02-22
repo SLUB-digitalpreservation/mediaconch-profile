@@ -1,24 +1,26 @@
 <?xml version="1.0"?>
-<!-- SLUB version 2017-01 -->
-<policy type="or" name="Video file is MKV + FFV1v3 + 16bitRGB with CRC32" license="CC-BY-SA-4.0+">
+<policy type="or" name="SLUB Policy for MKV/FFV1v3, retrodigitized film 35mm" license="CC-BY-SA-4.0+">
   <description>SLUB related policy to test that the video file is suitable for archiving purposes.
+    This checks if a MKV/FFV1v3 fullfill needs for 35mm retrodigitization:
     - Container format is Matroska with error detection (CRC)
     - Video format is FFV1 with error detection (CRC) and with Intra mode (each frame is independent)
-    - Audio format is PCM (unfortunately it can not contain error detection) or FLAC (it has CRC by design)
     This policy is based on:
     - Example MKV FFV1 digitization policy.xml
     - Video file is MKV + FFV1-Intra + PCM or FLAC with CRC32 everywhere.xml
     If there are some policy violations or suggestions, please send an email to langzeitarchiv@slub-dresden.de
   </description>
   <policy type="and" name="MKV, FFV1 Intra, PCM/FLAC, error detection">
+    
     <policy type="and" name="Container">
       <rule name="General/FileExtension is mkv" value="FileExtension" tracktype="General" occurrence="*" operator="=">mkv</rule>
       <rule name="Container is MKV" value="Format" tracktype="General" occurrence="*" operator="=">Matroska</rule>
       <rule name="Unique ID is present?" value="UniqueID" tracktype="General" occurrence="*"/>
-      <rule name="Container uses error detection" value="extra/ErrorDetectionType" tracktype="General" occurrence="*" operator="=">Per level      1</rule>
+      
+      <rule name="Container uses error detection" value="extra/ErrorDetectionType" tracktype="General" occurrence="*" operator="=">Per level 1</rule>
       <rule name="General/Format_Version is 4" value="Format_Version" tracktype="General" occurrence="*" operator="=">4</rule>
       <rule name="General/FrameRate is 24.000" value="FrameRate" tracktype="General" occurrence="*" operator="=">24.000</rule>
     </policy>
+    
     <policy type="and" name="Video">
       <rule name="Video is FFV1" value="Format" tracktype="Video" occurrence="*" operator="=">FFV1</rule>
       <rule name="FFV1 is version 3.4 or later?" value="Format_Version" tracktype="Video" occurrence="*" operator="&gt;=">3.4</rule>
@@ -28,24 +30,25 @@
       <rule name="Video/ScanType is Progressive" value="ScanType" tracktype="Video" occurrence="*" operator="=">Progressive</rule>
       <rule name="Video/Compression_Mode is Lossless" value="Compression_Mode" tracktype="Video" occurrence="*" operator="=">Lossless</rule>
       
-      <policy type="or" name="Video is 4k/16bit RGB or less 2k/10bit YUV">
-        <policy type="and" name="YUV">
-          <rule name="ColorSpace is YUV?" value="ColorSpace" tracktype="Video" occurrence="*" operator="=">YUV</rule>
-          <rule name="Chroma Subsampling is 4:2:2?" value="ChromaSubsampling" tracktype="Video" occurrence="*" operator="=">4:2:2</rule>
-          <policy type="or" name="Bit Depth is 8 or 10?">
-            <rule name="Bit Depth is 8?" value="BitDepth" tracktype="Video" occurrence="*" operator="=">8</rule>
-            <rule name="Bit Depth is 10?" value="BitDepth" tracktype="Video" occurrence="*" operator="=">10</rule>
+      <policy type="and" name="Video is >=4k/16bit RGB">
+        <policy type="or" name="typical Resolutions">
+          <policy type="and" name="4K Akademy Format (4048x2990)">
+            <rule name="Video/Width is 4048" value="Width" tracktype="Video" occurrence="*" operator="=">4048</rule>
+            <rule name="Video/Height is 2990" value="Height" tracktype="Video" occurrence="*" operator="=">2990</rule>
+          </policy>
+          <policy type="and" name="6k (volle Filmbreite, 6608x3476)">
+            <rule name="Video/Width is 6698" value="Width" tracktype="Video" occurrence="*" operator="=">6608</rule>
+            <rule name="Video/Height is 3476" value="Height" tracktype="Video" occurrence="*" operator="=">3476</rule>
           </policy>
         </policy>
-        <policy type="and" name="RGB">
-          <rule name="ColorSpace is RGB?" value="ColorSpace" tracktype="Video" occurrence="*" operator="=">RGB</rule>
-          <rule name="Chroma Subsampling is 4:4:4?" value="ChromaSubsampling" tracktype="Video" occurrence="*" operator="=">4:4:4</rule>
-          <rule name="Bit Depth is 16?" value="BitDepth" tracktype="Video" occurrence="*" operator="=">16</rule>
-        </policy>
+        <rule name="Video/PixelAspectRatio is 1.000" value="PixelAspectRatio" tracktype="Video" occurrence="*" operator="=">1</rule>
+        <rule name="ColorSpace is RGB?" value="ColorSpace" tracktype="Video" occurrence="*" operator="=">RGB</rule>
+        <rule name="Bit Depth is 16?" value="BitDepth" tracktype="Video" occurrence="*" operator="=">16</rule>
       </policy>
+
     </policy>
-    <policy type="or" name="Audio exist or not">
-      <policy type="and" name="Audio exist">
+    
+    <policy type="or" name="Audio">
         <rule name="General/AudioCount is 1" value="AudioCount" tracktype="General" occurrence="*" operator="=">1</rule>
         <policy type="or" name="Audio is PCM or FLAC">
           <rule name="Audio is PCM" value="Format" tracktype="Audio" occurrence="*" operator="=">PCM</rule>
@@ -60,10 +63,6 @@
           <rule name="Bit Depth is 16?" value="BitDepth" tracktype="Audio" occurrence="*" operator="=">16</rule>
           <rule name="Bit Depth is 24?" value="BitDepth" tracktype="Audio" occurrence="*" operator="=">24</rule>
         </policy>
-      </policy>
-      <policy type="or" name="Audio is not included">
-        <rule name="General/AudioCount is 0" value="AudioCount" tracktype="General" occurrence="*" operator="=">0</rule>
-      </policy>
     </policy>
   </policy>
 </policy>
