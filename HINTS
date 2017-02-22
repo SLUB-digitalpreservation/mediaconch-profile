@@ -21,3 +21,8 @@ Expected video-sizes:
 
 Preservation policy for video material of SLUB:
 - there is no policy offically released yet, please be patient… :)
+
+Howto check files against policy:
+- you need an installed mediaconch
+- on Bash call:
+  $> mediaconch --Policy=SLUB_mediaconch_policy_retrodigitized_film35mm.xml -fh file-to-test.mkv > report.html
