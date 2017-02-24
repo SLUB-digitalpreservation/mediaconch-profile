@@ -49,7 +49,7 @@
     </policy>
 
     <policy type="or" name="Audio">
-      <rule name="Audio does not exist" value="Default" tracktype="Audio" occurrence="*" operator="must not exist"/>
+      <rule name="Audio does not exist" value="AudioCount" tracktype="General" occurrence="*" operator="must not exist"/>
       <policy type="or" name="Audio exist">
         <rule name="General/AudioCount is 1" value="AudioCount" tracktype="General" occurrence="*" operator="=">1</rule>
         <policy type="or" name="Audio is PCM or FLAC">
