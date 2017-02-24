@@ -49,6 +49,8 @@
     </policy>
     
     <policy type="or" name="Audio">
+      <rule name="Audio does not exist" value="Default" tracktype="Audio" occurrence="*" operator="must not exist"/>
+      <policy type="or" name="Audio exist">
         <rule name="General/AudioCount is 1" value="AudioCount" tracktype="General" occurrence="*" operator="=">1</rule>
         <policy type="or" name="Audio is PCM or FLAC">
           <rule name="Audio is PCM" value="Format" tracktype="Audio" occurrence="*" operator="=">PCM</rule>
@@ -63,6 +65,7 @@
           <rule name="Bit Depth is 16?" value="BitDepth" tracktype="Audio" occurrence="*" operator="=">16</rule>
           <rule name="Bit Depth is 24?" value="BitDepth" tracktype="Audio" occurrence="*" operator="=">24</rule>
         </policy>
+      </policy>
     </policy>
   </policy>
 </policy>

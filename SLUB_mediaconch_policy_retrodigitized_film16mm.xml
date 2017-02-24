@@ -42,19 +42,22 @@
     </policy>
     
     <policy type="or" name="Audio">
-      <rule name="General/AudioCount is 1" value="AudioCount" tracktype="General" occurrence="*" operator="=">1</rule>
-      <policy type="or" name="Audio is PCM or FLAC">
-        <rule name="Audio is PCM" value="Format" tracktype="Audio" occurrence="*" operator="=">PCM</rule>
-        <rule name="Audio is FLAC" value="Format" tracktype="Audio" occurrence="*" operator="=">FLAC</rule>
-      </policy>
-      <rule name="Audio is 48000 Hz?" value="SamplingRate" tracktype="Audio" occurrence="*" operator="=">48000</rule>
-      <policy type="or" name="Audio is Stereo or Mono?">
-        <rule name="Audio is mono?" value="Channels" tracktype="Audio" occurrence="*" operator="=">1</rule>
-        <rule name="Audio is stereo?" value="Channels" tracktype="Audio" occurrence="*" operator="=">2</rule>
-      </policy>
-      <policy type="or" name="Audio Bit Depth is 16 or 24?">
-        <rule name="Bit Depth is 16?" value="BitDepth" tracktype="Audio" occurrence="*" operator="=">16</rule>
-        <rule name="Bit Depth is 24?" value="BitDepth" tracktype="Audio" occurrence="*" operator="=">24</rule>
+      <rule name="Audio does not exist" value="Default" tracktype="Audio" occurrence="*" operator="must not exist"/>
+      <policy type="or" name="Audio exist">
+        <rule name="General/AudioCount is 1" value="AudioCount" tracktype="General" occurrence="*" operator="=">1</rule>
+        <policy type="or" name="Audio is PCM or FLAC">
+          <rule name="Audio is PCM" value="Format" tracktype="Audio" occurrence="*" operator="=">PCM</rule>
+          <rule name="Audio is FLAC" value="Format" tracktype="Audio" occurrence="*" operator="=">FLAC</rule>
+        </policy>
+        <rule name="Audio is 48000 Hz?" value="SamplingRate" tracktype="Audio" occurrence="*" operator="=">48000</rule>
+        <policy type="or" name="Audio is Stereo or Mono?">
+          <rule name="Audio is mono?" value="Channels" tracktype="Audio" occurrence="*" operator="=">1</rule>
+          <rule name="Audio is stereo?" value="Channels" tracktype="Audio" occurrence="*" operator="=">2</rule>
+        </policy>
+        <policy type="or" name="Audio Bit Depth is 16 or 24?">
+          <rule name="Bit Depth is 16?" value="BitDepth" tracktype="Audio" occurrence="*" operator="=">16</rule>
+          <rule name="Bit Depth is 24?" value="BitDepth" tracktype="Audio" occurrence="*" operator="=">24</rule>
+        </policy>
       </policy>
     </policy>
   </policy>
