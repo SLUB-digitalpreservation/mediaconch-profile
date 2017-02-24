@@ -1,5 +1,5 @@
-Mediaconch policies to fullfill needs of SLUBArchiv preservation requirements
-=============================================================================
+Mediaconch policies to fulfill the needs of SLUBArchiv preservation requirements
+================================================================================
 
 based on:
 * system policy "Example MKV FFV1 digitization policy" by mediaconch

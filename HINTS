@@ -1,7 +1,7 @@
 the policy format of mediaconch is not well documented yet, here some observations
 (date: 2017-02-20)
 
-- within the policy-xml there are no XML-comments allowed 
+- within the policy-xml, no XML-comments are allowed
   (will be fixed in upcoming mediaconch version)
 
 - tag <description /> is only allowed on top level, otherwise it will be
@@ -11,9 +11,9 @@ the policy format of mediaconch is not well documented yet, here some observatio
     <description>foo</description>
     <rule name="bar" value="baz" tracktype="General" occurrence="*" operator="=">1</rule>
   </policy>
-  will always "true", also if <rule name="bar" .. /> fails.
+  will always "true", even if <rule name="bar" .. /> fails.
 
-- to express that either a stream should not exist or exist with given properties, try this:
+- to express that either a stream should not exist or should exist with given properties, try this:
   <policy type="or" name="Audio">
     <rule name="Audio does not exist" value="Default" tracktype="Audio" occurrence="*" operator="must not exist"/>
     <policy type="or" name="Audio exist">
@@ -22,10 +22,10 @@ the policy format of mediaconch is not well documented yet, here some observatio
   </policy>
 
 Expected video-sizes:
-- a good source about videosizes could be https://de.wikipedia.org/wiki/Digital_Intermediate
+- a good source about videosizes can be found at https://de.wikipedia.org/wiki/Digital_Intermediate
 
 Preservation policy for video material of SLUB:
-- there is no policy offically released yet, please be patient… :)
+- there is no policy officially released yet, please be patient… :)
 
 Howto check files against policy:
 - you need an installed mediaconch
