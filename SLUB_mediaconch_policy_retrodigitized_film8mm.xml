@@ -44,7 +44,7 @@
             <rule name="ColorSpace is RGB" value="ColorSpace" tracktype="Video" occurrence="*" operator="=">RGB</rule>
           </policy>
         </policy>
-        <rule name="Bit Depth is 10" value="BitDepth" tracktype="Video" occurrence="*" operator="=">10</rule>
+        <rule name="Bit Depth is >=10" value="BitDepth" tracktype="Video" occurrence="*" operator="&gt;=">10</rule>
       </policy>
     </policy>
 
