@@ -40,18 +40,26 @@
           <policy type="and" name="4K Format Fa. CinepostProduction (4096x3200)">
             <rule name="Video/Width is 4096" value="Width" tracktype="Video" occurrence="*" operator="=">4096</rule>
             <rule name="Video/Height is 3200" value="Height" tracktype="Video" occurrence="*" operator="=">3200</rule>
+            <rule name="Video/DisplayAspectRatio is 1.280" value="DisplayAspectRatio" tracktype="Video" occurrence="*" operator="=">1.280</rule>
           </policy>
           <policy type="and" name="4K Format Fa. Omnimago (4096x3460)">
             <rule name="Video/Width is 4096" value="Width" tracktype="Video" occurrence="*" operator="=">4096</rule>
             <rule name="Video/Height is 3460" value="Height" tracktype="Video" occurrence="*" operator="=">3460</rule>
+            <rule name="Video/DisplayAspectRatio is 1.184" value="DisplayAspectRatio" tracktype="Video" occurrence="*" operator="=">1.184</rule>
           </policy>
+          <policy type="and" name="4K Format Fa. Omnimago (4096x2976)">
+            <rule name="Video/Width is 4096" value="Width" tracktype="Video" occurrence="*" operator="=">4096</rule>
+            <rule name="Video/Height is 2976" value="Height" tracktype="Video" occurrence="*" operator="=">2976</rule>
+            <rule name="Video/DisplayAspectRatio is 1.376" value="DisplayAspectRatio" tracktype="Video" occurrence="*" operator="=">1.376</rule>
+          </policy>
+          
           
           <policy type="and" name="6k (volle Filmbreite, 6608x3476)">
             <rule name="Video/Width is 6698" value="Width" tracktype="Video" occurrence="*" operator="=">6608</rule>
             <rule name="Video/Height is 3476" value="Height" tracktype="Video" occurrence="*" operator="=">3476</rule>
           </policy>
         </policy>
-        <rule name="Video/PixelAspectRatio is 1.000" value="PixelAspectRatio" tracktype="Video" occurrence="*" operator="=">1</rule>
+        <rule name="Video/PixelAspectRatio is 1.000" value="PixelAspectRatio" tracktype="Video" occurrence="*" operator="=">1.000</rule>
         <rule name="ColorSpace is RGB" value="ColorSpace" tracktype="Video" occurrence="*" operator="=">RGB</rule>
         <rule name="Bit Depth is 16" value="BitDepth" tracktype="Video" occurrence="*" operator="=">16</rule>
         

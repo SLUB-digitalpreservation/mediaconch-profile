@@ -33,9 +33,10 @@
           <policy type="and" name="2K HD Format (2048x1080)">
             <rule name="Video/Width is 2048" value="Width" tracktype="Video" occurrence="*" operator="=">2048</rule>
             <rule name="Video/Height is 1080" value="Height" tracktype="Video" occurrence="*" operator="=">1080</rule>
+            <rule name="Video/DisplayAspectRatio is 1.347" value="DisplayAspectRatio" tracktype="Video" occurrence="*" operator="=">1.347</rule>
           </policy>
         </policy>
-        <rule name="Video/PixelAspectRatio is 1.000" value="PixelAspectRatio" tracktype="Video" occurrence="*" operator="=">1</rule>
+        <rule name="Video/PixelAspectRatio is 1.000" value="PixelAspectRatio" tracktype="Video" occurrence="*" operator="=">1.000</rule>
         <rule name="ColorSpace is RGB" value="ColorSpace" tracktype="Video" occurrence="*" operator="=">RGB</rule>
         <rule name="Bit Depth is 16" value="BitDepth" tracktype="Video" occurrence="*" operator="=">16</rule>
       </policy>

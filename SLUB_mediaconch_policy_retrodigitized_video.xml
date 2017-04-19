@@ -29,15 +29,27 @@
       <rule name="Video/Compression_Mode is Lossless" value="Compression_Mode" tracktype="Video" occurrence="*" operator="=">Lossless</rule>
       
       <policy type="or" name="Video is PAL/NTSC">
+        <policy type="and" name="DV PAL">
+          <rule name="Video/Width is =720" value="Width" tracktype="Video" occurrence="*" operator="=">720</rule>
+          <rule name="Video/Height is =576" value="Height" tracktype="Video" occurrence="*" operator="=">576</rule>
+          <rule name="Video/PixelAspectRatio is 1.067" value="PixelAspectRatio" tracktype="Video" occurrence="*" operator="=">1.067</rule>
+          <rule name="Video/DisplayAspectRatio is 1.333 (4:3)" value="DisplayAspectRatio" tracktype="Video" occurrence="*" operator="=">1.333</rule>
+          <rule name="General/FrameRate is 25.000" value="FrameRate" tracktype="General" occurrence="*" operator="=">25.000</rule>
+          <rule name="Video/ScanType is Progressive" value="ScanType" tracktype="Video" occurrence="*" operator="=">Progressive</rule>
+        </policy>
         <policy type="and" name="PAL">
           <rule name="Video/Width is =768" value="Width" tracktype="Video" occurrence="*" operator="=">768</rule>
           <rule name="Video/Height is =576" value="Height" tracktype="Video" occurrence="*" operator="=">576</rule>
+          <rule name="Video/PixelAspectRatio is 1" value="PixelAspectRatio" tracktype="Video" occurrence="*" operator="=">1</rule>
+          <rule name="Video/DisplayAspectRatio is 1.333" value="DisplayAspectRatio" tracktype="Video" occurrence="*" operator="=">1.333</rule>
           <rule name="General/FrameRate is 25.000" value="FrameRate" tracktype="General" occurrence="*" operator="=">25.000</rule>
+          <rule name="Video/ScanType is Progressive" value="ScanType" tracktype="Video" occurrence="*" operator="=">Progressive</rule>
         </policy>
         <policy type="and" name="NTSC">
           <rule name="Video/Width is =640" value="Width" tracktype="Video" occurrence="*" operator="=">640</rule>
           <rule name="Video/Height is =480" value="Height" tracktype="Video" occurrence="*" operator="=">480</rule>
           <rule name="General/FrameRate is 30.000" value="FrameRate" tracktype="General" occurrence="*" operator="=">30.000</rule>
+          <rule name="Video/ScanType is Progressive" value="ScanType" tracktype="Video" occurrence="*" operator="=">Progressive</rule>
         </policy>
       </policy>
       
